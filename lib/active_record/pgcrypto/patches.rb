@@ -11,7 +11,7 @@ module ActiveRecord
       # can return same decrypted values, we don't check it.
       #
       # @return [FalseClass] on our coder values.
-      def changed_in_place?(*args, **kwargs)
+      def changed_in_place?(raw_old_value, value)
         return false if coder == ActiveRecord::PGCrypto::SymmetricCoder
 
         super
